@@ -1,6 +1,6 @@
 Ethical Use License
 
-Version 1.0, [Date]
+Version 1.0, 7/10/2024
 Preamble
 
 This license governs the use of High ASM. The Language is licensed under this agreement with the explicit purpose of promoting ethical and beneficial applications, while prohibiting uses that contribute to harm, exploitation, or disproportionate financial gain.
