@@ -38,6 +38,7 @@ This license is effective until terminated. Your rights under this license will 
 
 Contact Information
 For inquiries regarding ethical use and licensing terms, please contact wendell.parham11@gmail.com
+and mark it as important 
 
 Acceptance of Terms 
 By using, copying, modifying, or distributing the Language, you agree to abide by the terms and conditions of this license. If you do not agree to these terms, you are not authorized to use the Language.
