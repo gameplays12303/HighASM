@@ -1,0 +1,13 @@
+local inp,stri
+:char_inp:
+    inp:pack(syscall("keyboard"))
+    if inp[1]:equal(keys.enter):
+        goto("continue")
+    stri:concat(inp[2])
+    goto("char_inp")
+:continue:
+    local echo:set(comp:import("exampeles/echo.func"))
+    echo(stri)
+os.exit(0)
+
+

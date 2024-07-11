@@ -1,0 +1,15 @@
+{
+    0x01 = {
+        arguments = 1
+        format = "push %s"
+    }
+    0x02 = {
+        arguments = true
+        format = "syscall %s,%s,%s,%s"
+    }
+    0x03 = "add %s,%s"
+    0x04 = "load %s,%s"
+    0x05 = "sub %s,%s"
+    0x06 = "divied %s,%s"
+    0x07 = "move %s,%s"
+}
