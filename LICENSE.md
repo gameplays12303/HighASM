@@ -6,7 +6,7 @@ Preamble
 This license governs the use of High ASM. The Language is licensed under this agreement with the explicit purpose of promoting ethical and beneficial applications, while prohibiting uses that contribute to harm, exploitation, or disproportionate financial gain.
 Terms and Conditions
 
-Permitted Use: You are permitted to use, copy, modify, and distribute the Language and any modifications thereof for both non-commercial and commercial purposes, provided that such use is intended for ethical and non-harmful applications. Examples include educational, research, humanitarian, and commercial projects.
+Permitted Use: You are permitted to use, copy, modify, and distribute the Language and any modifications thereof for both non-commercial and commercial purposes, provided that such use is intended for ethical and non-harmful applications. Examples include educational, research, humanitarian, and commercial projects.and that they are put under the same license
 
 Prohibited Uses: The following uses of the Language are strictly prohibited:
     Use in military applications, including development, integration, or deployment in military projects or weapons systems.
