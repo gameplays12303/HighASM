@@ -25,10 +25,10 @@ Distribution and Redistribution:
 You may distribute copies or modifications of the Language under the same terms as this license. All distributed copies must include the same copyright notice and disclaimer of warranty as provided in the original software.
 
 Attribution: 
-When distributing the Language or its derivatives, you must give appropriate credit to [Your Name or Organization], including a prominent notice that the software is licensed under this license.
+When distributing the Language or its derivatives, you must give appropriate credit, including a prominent notice that the software is licensed under this license.
 
 No Warranty: 
-The Language is provided "as-is", without any warranty or support of any kind, either express or implied. [Your Name or Organization] shall not be liable for any damages resulting from the use or misuse of the Language.
+The Language is provided "as-is", without any warranty or support of any kind, either express or implied. wendell parham shall not be liable for any damages resulting from the use or misuse of the Language.
 
 Modification: 
 You may modify the Language or create derivative works, provided that any modifications are clearly marked as such, and that you do not remove or alter any existing copyright notices.
