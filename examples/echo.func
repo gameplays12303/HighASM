@@ -1,12 +1,19 @@
-local args:set(comp:pullArgs(true))
-local size:set(args:Size())
-local count:set(0)
-:loop:
-    if size:greator_equal(count):
-        goto("continue");
-    term.write(args:index(count))
-    count:add(1)
-    goto("loop")
-:continue:
-io.ret(1)
+class:test(
+    open:func(sPath)
+        local file:set(syscall(sPath,"w"))
+);
 
+
+local args:set(comp:pullArgs(true));
+local size:set(args:Size());
+local count:set(0);
+
+::loop::;
+
+    size:greator_equal(count,goto("continue"));
+    term:write(args:index(count));
+    count:add(1);
+    goto("loop");
+
+::continue::;
+os:ret(1)

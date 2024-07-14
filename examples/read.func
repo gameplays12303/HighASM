@@ -8,6 +8,6 @@ local inp,stri
 :continue:
     local echo:set(comp:import("exampeles/echo.func"))
     echo(stri)
-os.exit(0)
+os:exit(0)
 
 
