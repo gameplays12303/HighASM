@@ -2,7 +2,7 @@ this is a supposed to be a highly abstract version of ASM at least when it come 
 
 the syntax :
 this is the syntax
-[var]:[action] ([arguments]...) that's it
+[var]:[action]([arguments]...) that's it
 
 the action will effect the var not create a new var
 so [test]:[action] will not create [test2]
