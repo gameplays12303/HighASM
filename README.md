@@ -12,12 +12,16 @@ but will effect [test] itself
 
 
 complier: -- complier communction and configuration table
+
 complier:realMode([boolean]) -- tells the complier that we are runing directly on the hardWare no OS
+
 complier:kernelMode([boolean]) -- swaps between kernelMode and userMode and where memory is going to be written
+
 complier:getBytes([label|IDE-address],[label|IDE-address]) -- gets the number of bytes between one label or IDE-adress and nother one label or IDE-adress
 
 key words 
 global -- stored in ram (never deleted must be removed manually)
+
 local -- stored on stack (if declaring a table it will put in ram but null it when the stack is popped off)
 
 
@@ -31,30 +35,27 @@ string
 the next are only avaible when complier:realMode is set to false -- you will need to redeclare these if true
 
 thread
+
 dynamic_Table -- dynamic refers to size of the table
-
-the next are only avaible when the complier is set to kernelMode; 
-WARNING : the program will crash if you use this but it's not acaully in kernelMode
-
-io
 
 now lets look at what each object has 
 
 nil
-    nil:set -- sets the names value 
-    nil:isNil -- returns true if is nil
-    nil:null -- undeclares a var (this is done automatily at complier time)
+    [nil]:set -- sets the names value 
+    [nil]:isNil -- returns true if is nil
+    [nil]:null -- undeclares a var (this is done automatily at complier time)
 
 
 static_Table and dynamic_Table 
 
-    set_index:([name|number],[value]) -- handle accodently 
+    [TABLE]:set_index([name|number],[value]) -- handle accodently 
     index([name|number]) -- returns index
     Size -- return CurrentSize
 
 dynamic_Table only
-    pop([index/nil]) -- removes and returns the value if argument is nill it will remove the top like stack
-    insert([var/value],[index\nil]) -- adds the var or value to the table if nill it will add to top like stack
+    [TABLE]:pop([index/nil]) -- removes and returns the value if argument is nill it will remove the top like stack
+
+    [TABLE]:insert([var/value],[index\nil]) -- adds the var or value to the table if nill it will add to top like stack
 
 number
     --- when doing any of this if the value changes the value will be placed back into the called object
