@@ -1,9 +1,3 @@
-class:test(
-    open:func(sPath)
-        local file:set(syscall(sPath,"w"))
-);
-
-
 local args:set(comp:pullArgs(true));
 local size:set(args:Size());
 local count:set(0);
