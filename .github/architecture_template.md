@@ -1,0 +1,29 @@
+take out  desription and examples 
+this is used by the translater to make the final result
+
+-- structure template (take out)
+{
+  ["register relationships"] = {
+    {
+        address, -- pushed to 
+        type_value = [string], -- what register pushed to expects 
+        for = {}, -- list of basic actions ASM actions the register is related like the MMU config or math like ADD
+    },
+  },
+  addressMap = { --exclude CPU
+      [string/part] = {
+        start_address,
+        end_address,
+      },
+      [bios] = {
+        0x001
+        0x004,
+      },
+  },
+  architecture_syntax = { -- classed cods items are byond these codes 
+      [Intermediate binary_code] = {
+        args_count = n -- number of arguments taken,
+        action name = [string]
+      },
+  },
+}
