@@ -2,9 +2,10 @@
 HighASM is a programming language that combines elements of Lua and assembly to offer both high-level and low-level programming capabilities. Its syntax is very streamlined, focusing on actions that modify existing variables rather than creating new ones. Here's a summary of its main features and syntax:
 
 ### Syntax Overview
- General Form -- [var]:[action]([arguments]...)`
+ General Form -- `[var]:[action]([arguments]...)`
+ 
  [var] -- A variable that the action will affect.
- [action] -- An operation to be performed on `[var]`.
+ [action] -- An operation to be performed on [var].
 
 ### Compiler Configuration
 
