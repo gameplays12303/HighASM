@@ -85,13 +85,13 @@ nil -- place holder type
  
  [number]:subtract([number]) -- Subtracts a number.
  
- [number]:greater([number]) -- Checks if greater.
+ [number]:greater([number],label) -- Checks if greater.
  
- [number]:less([number]) -- Checks if less.
+ [number]:less([number],label) -- Checks if less.
  
- [number]:equal([number]) -- Checks if equal.
+ [number]:equal([number],label) -- Checks if equal.
  
- [number]:not_equal([number]) -- Checks if not equal.
+ [number]:not_equal([number],label) -- Checks if not equal.
 
 
 #### For `string`
