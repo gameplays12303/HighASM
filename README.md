@@ -1,84 +1,87 @@
-this is a supposed to be a highly abstract version of ASM at least when it come to general programing, Language is incomplete 
 
-the syntax :
-this is the syntax
-[var]:[action] ([arguments]...) that's it
+HighASM is a programming language that combines elements of Lua and assembly to offer both high-level and low-level programming capabilities. Its syntax is very streamlined, focusing on actions that modify existing variables rather than creating new ones. Here's a summary of its main features and syntax:
 
-the action will effect the var not create a new var
-so [test]:[action] will not create [test2]
-but will effect [test] itself
+### Syntax Overview
+ --General Form-- `[var]:[action]([arguments]...)`
+  --[var]-- A variable that the action will affect.
+  --[action]-- An operation to be performed on `[var]`.
 
+### Compiler Configuration
 
+--compiler:BareMode([boolean])-- Specifies whether to run directly on hardware without an OS.
+--compiler:kernelMode([boolean])-- Switches between kernel and user mode.
+--compiler:set_Heap_manager_class([heap_class])-- Sets the heap manager class.
+--compiler:set_thread_class([thread])-- Sets the thread class.
 
+### Keywords
+--global -- Stored in RAM, must be manually removed.
+--local -- Stored on the stack, nullified when the stack is popped.
+--ret -- Used to return values.
 
-complier: -- complier communction and configuration table
+### Data Types
+--nil
+--static_Table-- Table with fixed size.
+--number -- Numeric values.
+--string -- Strings.
+--boolean -- Boolean values.
+--func -- Functions.
+--threads -- Concurrent executions.
 
-complier:realMode([boolean]) -- tells the complier that we are runing directly on the hardWare no OS
+### Mock ASM (Restricted Assembly)
+ --Assembly-Like Syntax -- Similar to real assembly but restricted.
+ --Indirect Memory Access -- Direct memory addressing is prohibited; indirect manipulation is allowed.
+ --Compiler Enforcement -- Ensures no direct general-purpose memory access.
 
-complier:kernelMode([boolean]) -- swaps between kernelMode and userMode and where memory is going to be written
+### Actions
 
-complier:getBytes([label|IDE-address],[label|IDE-address]) -- gets the number of bytes between one label or IDE-adress and nother one label or IDE-adress
+#### For `nil` Type
+--[nil]:set([value]) -- Sets a variable dynamically.
+--[nil]:static_var([value|nil],[type]) -- Sets a literal variable.
+--[nil]:boolean(true|false|nil) -- Reserves a variable for booleans.
+--[nil]:getBytes([vars|start_label],[nil|end_IDE_address])-- Returns number of bytes.
+--[nil]:syscall([args]...) -- Performs a syscall.
+--[nil]:asm("string_code") -- Returns a mock ASM function pointer.
+--[nil]:func("string_code") -- Returns a function pointer.
+--[nil]:dynamic_Table("table|nil") -- Reserves a variable for a dynamic table.
+--[nil]:static_Table([number_of_bytes]) -- Reserves a variable for a static table.
+--[nil]:import("string") -- Imports external libraries.
 
-key words 
-global -- stored in ram (never deleted must be removed manually)
+#### For `number`
+--[number]:add([number]) -- Adds a number.
+--[number]:multi([number]) -- Multiplies by a number.
+--[number]:divide([number]) -- Divides by a number.
+--[number]:subtract([number]) -- Subtracts a number.
+--[number]:greater([number]) -- Checks if greater.
+--[number]:less([number]) -- Checks if less.
+--[number]:equal([number]) -- Checks if equal.
+--[number]:not_equal([number]) -- Checks if not equal.
 
-local -- stored on stack (if declaring a table it will put in ram but null it when the stack is popped off)
+#### For `string`
+--[nil]:string([type],[value|nil]) -- Reserves a variable for a string.
+--[str]:index() -- Gets a single character.
+--[str]:add([index],[char]) -- Adds to the string.
+--[str]:remove([index]) -- Removes a character.
 
+#### For `table` (static and dynamic)
+--[table]:set_index([name|number],[value]) -- Sets a value in the table.
+--[table]:index([name|number]) -- Gets a value from the table.
+--[table]:get_Sizes() -- Gets sizes of the table.
 
-the next values these are the type of values you have no matter what configuration the complier is in 
+#### For `dynamic_Table`
+--[table]:pop([index/nil]) -- Removes and returns a value.
+--[table]:push([var/value],[index\nil]) -- Adds a value.
 
-nil
-static_Table  -- static refers to size of the table
-number
-string
+#### For `func`
+--[fn]:call([args]...) -- Calls a function.
+--[fn]:pcall([args]...) -- Calls a function in isolation.
 
-the next are only avaible when complier:realMode is set to false -- you will need to redeclare these if true
+#### For `threads`
+--[var]:create_thread([fn]) -- Reserves a variable for threads.
+--[var]:run_threads([fn]...) -- Runs threads and handles syscalls.
 
-thread
+### Mock ASM Design
+ --Assembly-Like Syntax -- Mimics traditional assembly with specific restrictions.
+ --Indirect Memory Manipulation -- Allows indirect access while avoiding direct general memory address manipulation.
+ --Controlled Assembly Experience -- Ensures safety by limiting access to general-purpose memory.
 
-dynamic_Table -- dynamic refers to size of the table
-
-now lets look at what each object has 
-
-nil
-    [nil]:set -- sets the names value 
-    [nil]:isNil -- returns true if is nil
-    [nil]:null -- undeclares a var (this is done automatily at complier time)
-
-
-static_Table and dynamic_Table 
-
-    [TABLE]:set_index([name|number],[value]) -- handle accodently 
-    index([name|number]) -- returns index
-    Size -- return CurrentSize
-
-dynamic_Table only
-    [TABLE]:pop([index/nil]) -- removes and returns the value if argument is nill it will remove the top like stack
-
-    [TABLE]:insert([var/value],[index\nil]) -- adds the var or value to the table if nill it will add to top like stack
-
-number
-    --- when doing any of this if the value changes the value will be placed back into the called object
-    so  test:add(10) test will now equal whatever +10
-
-    [number]:add([number])
-    [number]:multi(number)
-    [number]:divied([number])
-    [number]:subtract([number])
-    [number]:greator([number])
-    [number]:less([number])
-    [number]:equal([number])
-    [number]:not_equal([number])
-
--- stri
-    this is a array of chars
-    [str]:index() -- gets a single charater from the away (doesn't allow indexing outside the array)
-    [str]:add([index],[char]) -- adds to the string
-    [str]:remove([index]):removes it and returns it 
-
-
-where names are used twice the complier will handle that 
-
-
-this lanauge is meant to be the C and zig killers because of the high level of control and the high level of abstration
-this is do to the io table which is a low level interface to the hardWare with high level abstration
+Feel free to ask if you need more details or examples on any of these features!
