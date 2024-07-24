@@ -5,28 +5,43 @@ HighASM is a programming language that combines elements of Lua and assembly to 
  General Form -- `[var]:[action]([arguments]...)`
  
  [var] -- A variable that the action will affect.
+ 
  [action] -- An operation to be performed on [var].
 
 ### Compiler Configuration
 
  compiler:BareMode([boolean])-- Specifies whether to run directly on hardware without an OS.
+ 
  compiler:kernelMode([boolean])-- Switches between kernel and user mode.
+ 
  compiler:set_Heap_manager_class([heap_class])-- Sets the heap manager class.
+ 
  compiler:set_thread_class([thread])-- Sets the thread class.
+ 
 
 ### Keywords
  global -- Stored in RAM, must be manually removed.
+ 
  local -- Stored on the stack, nullified when the stack is popped.
+ 
  ret   Used to return values.
+ 
 
 ### Data Types
 nil -- place holder type
+
  static_Table-- Table with fixed size.
+ 
  number -- Numeric values.
+ 
  string -- Strings.
+ 
  boolean -- Boolean values.
+ 
  func -- Functions.
+ 
  threads -- Concurrent executions.
+ 
 
 ### Mock ASM (Restricted Assembly)
   Assembly-Like Syntax -- Similar to real assembly but restricted.
