@@ -3,7 +3,7 @@ HighASM is a programming language that combines elements of Lua and assembly to 
 
 ### Syntax Overview
  --General Form-- `[var]:[action]([arguments]...)`
-  --[var]-- A variable that the action will affect.
+  --[var]-- A variable that the action will affect., 
   --[action]-- An operation to be performed on `[var]`.
 
 ### Compiler Configuration
