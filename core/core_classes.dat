@@ -1,5 +1,5 @@
 
-local var = {
+{
     ["nil"] = {
         ["isNil"] = {
             num_args = 0,
