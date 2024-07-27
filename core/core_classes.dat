@@ -1,0 +1,178 @@
+
+local var = {
+    ["nil"] = {
+        ["isNil"] = {
+            num_args = 0,
+            asm = "
+                load %sax,%s
+                xor %sdx,%sdx
+                comp %sax,%sdx,
+                je %s
+            "
+        },
+        ["null"] = {
+            num_args = 0,
+            asm = "
+                load %s,%sax
+                xor %sax,%sax
+                store %sax,%s
+            "  
+        },
+    },
+    ["table"] = {
+        ["dynamic_table"] = {
+            num_args = 0,
+            func = "" 
+        },
+        ["static_table"] = {
+            num_args = 1,
+            args_type = "number"
+            declare_only = true
+            asm_section_data = true
+        },
+        ["insert"] = {
+            num_args = true,
+            args_type = {
+                "number",
+            }
+            asm = "
+                load %sax,%s ; loads the minim address
+                load %sdx,%s ; loads the maxmuim address
+                check_pinter 
+                load %ssi,r%s ,loads the pointer
+                add  r%s,%ssi
+                load %ssi,%s
+                comp %ssi,0
+                %s %s,%s ;jump condition
+                comp %ssi,%s
+                %s %s,%s
+                store %ssi,r%s
+            "
+        },
+        ["remove"] = {
+            num_args = 2,
+            args_type = {
+                {
+                    "number",
+                    "string"
+                },
+                "number",
+            }
+        }
+    },
+    ["number"] = {
+        ["number"] = {
+            num_args = 1,
+            args_type = "number",
+        },
+        ["add"] = {
+            num_args = 1,
+            args_type = "number",
+        },
+        ["sub"] = {
+            num_args = 1,
+            args_type = "number",
+        },
+        ["multi"] = {
+            num_args = 1,
+            args_type = "number",
+        },
+        ["divid"] = {
+            num_args = 1,
+            args_type = "number",
+        },
+        ["equal"] = {
+            num_args = 2,
+            args_type = {
+                "number",
+                "label"
+            },
+        },
+        ["greater"] = {
+            num_args = 2,
+            args_type = {
+                "number",
+                "label"
+            },
+        },
+        ["less"] = {
+            num_args = 2,
+            args_type = {
+                "number",
+                "label"
+            },
+        },
+    },
+    ["string"] = {
+        ["static_string"] = {
+            num_args = 1,
+            args_type = "literal_string",
+        },
+        ["dynamic_string"] = {
+            num_args = 1,
+            args_type = "literal_string",
+        },
+        ["sub"] = {
+            num_args = 2,
+            args_type = {
+                "number",
+                "number"
+            },
+        },
+        ["match"] = {
+            num_args = 1,
+            args_type = "string",
+        },
+        ["find"] = {
+            num_args = 1,
+            args_type = "string",
+        },
+        ["len"] = {
+           num_args = 0, 
+        },
+        ["concat"] = {
+            num_args = true,
+            args_type = "string",
+        },
+    },
+    ["boolean"] = {
+        ["boolean"] = {
+            num_args = 1,
+            args_type = {
+                "boolean",
+                "nil"
+            }
+        },
+        ["jump"] = {
+            num_args = 1,
+            args_type = {
+
+            },
+        },
+        ["and"] = {
+            num_args = 1,
+            args_type = "boolean",
+        },
+        ["or"] = {
+            num_args = 1,
+            args_type = "boolean",
+        },
+        ["not"] = {
+            num_args = 0,
+        },
+    },
+    ["function"] = {
+        ["call"] = {
+            num_args = true,
+            args_type = {
+                "function",
+            }
+        },
+        ["pcall"] = {
+            num_args = true,
+            args_type = {
+                "function",
+            }
+        },
+    },
+}

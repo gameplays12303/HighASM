@@ -96,6 +96,10 @@ function String.Serialise(_data,_Index)
             return tostring(_data)
         end,
         ["string"] = function ()
+            if string.find(_data,"\"")
+            then
+                  return _data
+            end
             return "\"".._data.."\""
         end,
         ["table"] = function ()
@@ -120,7 +124,7 @@ function String.Serialise(_data,_Index)
         end,
     }
     handle["number"] = handle["boolean"]
-    return handle[type(_data)]()
+    return handle[type(_data)] and handle[type(_data)]() or error(("not supported %s"):format(type(_data)),2)
 end
 ---custom text loader 
 ---@param _sData string
