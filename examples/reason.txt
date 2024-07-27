@@ -1,4 +1,0 @@
-these here are concepts
-
-the kernel file is mainly to show the lengh this lanauge can reach 
-if one was to acually build a kernel with it 
